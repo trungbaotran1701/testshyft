@@ -5,12 +5,7 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  try {
-    const a = await request.json();
-    console.log(a);
-    return NextResponse.json(a);
-  } catch (error) {
-    console.error(error);
-    return NextResponse.error();
-  }
+  const a = await request.json();
+  console.log(a);
+  return NextResponse.json(a);
 }
