@@ -4,7 +4,13 @@ export async function GET() {
   return NextResponse.json("Hello World");
 }
 
-export async function POST(request: Request) {
-  console.log(request.json());
-  return NextResponse.json("Hello World");
+export async function POST(request: NextRequest) {
+  try {
+    const a = await request.json();
+    console.log(a);
+    return NextResponse.json(a);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.error();
+  }
 }
